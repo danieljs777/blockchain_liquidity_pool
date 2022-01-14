@@ -170,7 +170,7 @@ contract SpaceCoin is ERC20 {
 
     super._transfer(address(TREASURY_ACC), address(LIQUID_POOL), coins);
 
-    LIQUID_POOL.deposit{value: (address(this).balance)}(coins);
+    LIQUID_POOL.deposit{value: (address(this).balance)}(msg.sender, coins);
 
   }
 

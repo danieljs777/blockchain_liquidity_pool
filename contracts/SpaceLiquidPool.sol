@@ -57,7 +57,7 @@ contract SpaceLiquidPool is ERC20 {
       return 0;
   }
 
-  function deposit(uint256 _spcAmount, address _account) external payable lock {
+  function deposit(address _account, uint256 _spcAmount) external payable lock {
 
     require(_spcAmount > 0, "Send an amount of SpaceCoin");
     require(_spcAmount / 5 == msg.value, "Send an even amount of SpaceCoin x Ether (1 ETH = 5 SPC)");

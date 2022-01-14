@@ -22,13 +22,13 @@ contract SpaceRouter {
         require(success);
 
         SPACE_COIN.transferFrom(msg.sender, address(LIQUID_POOL), _amount);
-        LIQUID_POOL.deposit{value: msg.value}(_amount);
+        LIQUID_POOL.deposit{value: msg.value}(msg.sender, _amount);
     }
 
 
     function pullLiquidity() external {
 
-        LIQUID_POOL.withdraw();
+        LIQUID_POOL.withdraw(msg.sender);
     }
 
     function swap(uint256 _amount, uint8 _max_slippage) external payable {
